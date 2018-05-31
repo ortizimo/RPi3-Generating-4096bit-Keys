@@ -1,5 +1,5 @@
 ********************************************************
-Generating a 4096bit Encryption File
+Generating a 4096bit Encryption Key
 ********************************************************
 Author: Saulo S. Ortiz
 Date: 20170103
