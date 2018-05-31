@@ -7,52 +7,52 @@ Date: 20170103
 Note: If you build a new .pem file you need to create new ca.crt, server.key, server.crt and client.crt files
 
 4096 KEY SETUP
-  •	cd /etc/openvpn/easy-rsa
-  •	sudo nano vars
+  • cd /etc/openvpn/easy-rsa
+  • sudo nano vars
     o	find export KEY_SIZE=2048 line
       	change to =4096 for paranoid
       	change to =1024 for testing
-  •	ctrl-x, y, enter
+  • ctrl-x, y, enter
 
 CREATE NEW FILES
-  •	sudo –s
-  •	cd /etc/openvpn/easy-rsa
-  •	. ./vars
-  •	./build-dh
-    o	wait 5 hours if doing within RPi3, faster in VM
-    o	when done it will be located in /etc/openvpn
-  •	./clean-all
-    o	keys folder must be cleared to generate new files, make a backup of all 2046bit files
-  •	./build-ca
-  •	./build-key-server server
-  •	./build-key client1
+  • sudo –s
+  • cd /etc/openvpn/easy-rsa
+  • ../vars
+  • ./build-dh
+    o wait 5 hours if doing within RPi3, faster in VM
+    o when done it will be located in /etc/openvpn
+  • ./clean-all
+    o keys folder must be cleared to generate new files, make a backup of all 2046bit files
+  • ./build-ca
+  • ./build-key-server server
+  • ./build-key client1
 
-•	copy all files required for the server from /keys into /openvpn
-    o	ca.crt
-    o	server.key
-    o	server.crt
-    o	server.conf
-      	use old one
-    o	static.key
-      	use old one for both server and client
-      	if new static.key file is generated, make sure both server and client has the file
-      	key is always 2046bit
+• copy all files required for the server from /keys into /openvpn
+    o ca.crt
+    o server.key
+    o server.crt
+    o server.conf
+       use old one
+    o static.key
+       use old one for both server and client
+       if new static.key file is generated, make sure both server and client has the file
+       key is always 2046bit
 
-•	copy all files required for the clients from /keys into ~/client
-    o	ca.crt
-    o	client1.crt
-    o	client1.key
-    o	client1.ovpn
-      	use the old .ovpn file without the ca, crt and key data
-  •	cat and echo the .crt files and .key files into .ovpn
-  •	transfer to clients
-    o	client1.ovpn
-    o	static.key
+• copy all files required for the clients from /keys into ~/client
+    o ca.crt
+    o client1.crt
+    o client1.key
+    o client1.ovpn
+       use the old .ovpn file without the ca, crt and key data
+  • cat and echo the .crt files and .key files into .ovpn
+  • transfer to clients
+    o client1.ovpn
+    o static.key
 
 Note: must have the following files to create new client files, otherwise, new server CAs and key files will need to be generated:
-  •	ca.crt
-  •	dh dh4096.pem
-  •	server.crt
-  •	server.key
-  •	server.conf
-  •	static.key
+  • ca.crt
+  • dh dh4096.pem
+  • server.crt
+  • server.key
+  • server.conf
+  • static.key
