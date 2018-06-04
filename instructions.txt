@@ -1,8 +1,9 @@
-********************************************************
+﻿********************************************************
+Straightforward Training™
 Generating a 4096bit Encryption Key
-********************************************************
 Author: Saulo S. Ortiz
 Date: 20170103
+********************************************************
 
 Note: If you build a new .pem file you need to create new ca.crt, server.key, server.crt and client.crt files
 
@@ -56,3 +57,5 @@ Note: must have the following files to create new client files, otherwise, new s
   • server.key
   • server.conf
   • static.key
+
+
